@@ -42,11 +42,12 @@ class Server:
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
         '''
         goal here is that if between two queries, certain rows are removed from
-        the dataset, the user does not miss items from dataset when changing page.
+        the dataset, the user does not miss items from dataset when changing
+        page.
         '''
         data = self.indexed_dataset()
         assert index is not None and index >= 0 and index <= max(data.keys())
-        page_data =[]
+        page_data = []
         data_count = 0
         next_index = None
         start = index if index else 0
