@@ -18,6 +18,7 @@ def index_range(page: int, page_size: int) -> Tuple[int, int]:
     end = start + page_size
     return (start, end)
 
+
 class Server:
     '''
     Server class to paginate a database of popular baby names.
@@ -47,7 +48,7 @@ class Server:
         takes two integer arguments page with default value 1
         and page_size with default value 10.
         '''
-        assert type(page) == int and type(page_size)==int
+        assert type(page) == int and type(page_size) == int
         assert page > o and page_size > 0
         start, end = index_range(page, page_size)
         data = self.dataset()
