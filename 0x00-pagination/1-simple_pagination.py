@@ -36,8 +36,8 @@ class Server:
         '''
         if self.__dataset is None:
             with open(self.DATA_FILE) as f:
-                rd = csv.reader(f)
-                dataset = [row for row in rd]
+                reader = csv.reader(f)
+                dataset = [row for row in reader]
             self.__dataset = dataset[1:]
 
         return self.__dataset
