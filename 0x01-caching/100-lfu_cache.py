@@ -18,7 +18,7 @@ class LFUCache(BaseCaching):
         '''
         adds to cache
         '''
-        if key or item not None:
+        if key is not None or item is not None:
             if self.get(key) is None:
                 if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
                     del_key = self.leastRecent
