@@ -11,16 +11,19 @@ class FIFOCache(BaseCaching):
     FIFO caching system with a maximum number of items.
     '''
     def __init__(self):
-        super().__init__
+        super().__init__()
 
     def put(self, key, item):
         '''
         assiggns value to a dict for a given key
         '''
         if key is not None and item is not None:
-            if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
-                firt_item = self.cache_data.popitem(last=False)
-                print(f"DISCARD: {firt_item}\n")
+            if self.get(key) is None:
+                if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
+                    #firt_item = self.cache_data.popitem(last=False)
+                    firt_item = list(self.cache_data.keys())[0]
+                    del self.cache_data[firt_item]
+                    print(f"DISCARD: {firt_item}\n")
 
     def get(self, key):
         '''
