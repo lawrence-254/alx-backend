@@ -28,7 +28,6 @@ class LRUCache(BaseCaching):
         self.cache_data[key] = item
         self.leastrecentlyused.append(key)
 
-
     def get(self, key):
         '''
         fetch cache items
