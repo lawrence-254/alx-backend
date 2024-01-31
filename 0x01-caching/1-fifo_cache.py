@@ -1,22 +1,26 @@
 #!/usr/bin/env python3
 '''
-basic caching
+fifo caching
 '''
 from base_caching import BaseCaching
 
 
-class BasicCache(BaseCaching):
+class FIFOCache(BaseCaching):
     '''
     dictionary from the parent class BaseCaching
-    This caching system doesn’t have limit
+    FIFO caching system with a maximum number of items.
     '''
+    def __init__(self):
+        super().__init__
 
     def put(self, key, item):
         '''
         assiggns value to a dict for a given key
         '''
         if key is not None and item is not None:
-            self.cache_data[key] = item
+            if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
+                firt_item = self.cache_data.popitem(last=False)
+                print(f"DISCARD: {firt_item}\n")
 
     def get(self, key):
         '''
