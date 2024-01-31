@@ -17,16 +17,24 @@ class MRUCache(BaseCaching):
         '''
         adds to cache
         '''
-        if key is None or item is None:
-            return
-
-        if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
-            most_recently_used = list(self.cache_data.keys())[-1]
-            del self.cache_data[most_recently_used]
-            print(f"DISCARD: {most_recently_used}")
-
-        self.cache_data[key] = item
-
+        if key or item is not None:
+            valuecache = self.get(key)
+            if valuecache is None:
+                if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
+                    keydel = self.leastrecent
+                    lendel = len(keydel) - 1
+                    del self.cache_data[keydel[lendel]]
+                    print("DISCARD: {}".format(self.leastrecent.pop()))
+                else:
+                    del self.cache_data[key]
+                    
+                if key in self.leastrecent:
+                    self.leastrecent.remove(key)
+                    self.leastrecent.append(key)
+                else:
+                    self.leastrecent.append(key)
+                    self.cache_data[key] = item
+                        
     def get(self, key):
         '''
         fetches data from the cache
