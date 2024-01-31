@@ -24,7 +24,7 @@ class LFUCache(BaseCaching):
                     del_key = self.leastRecent
                     del_len = len(del_key) - 1
                     del self.cache_data[del_key[del_len]]
-                    print("DISCARD: {}".format(leastRecent.pop()))
+                    print("DISCARD: {}".format(self.leastRecent.pop()))
             else:
                 del self.cache_data[key]
 
