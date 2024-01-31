@@ -28,8 +28,8 @@ class MRUCache(BaseCaching):
         '''
         fetches data from the cache
         '''
-        if key is None or key not in self.cache_data:
-            return
-
-        self.cache_data[key] = self.cache_data.pop(key)
-        return self.cache_data.pop(key)
+        if key is not None and key in self.cache_data:
+            # Move the accessed key to the end to represent it's the most recently used
+            self.cache_data.move_to_end(key)
+            return self.cache_data[key]
+        return None
