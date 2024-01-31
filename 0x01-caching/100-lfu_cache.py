@@ -13,7 +13,7 @@ class LFUCache(BaseCaching):
         '''
         super().__init__()
         self.leastRecent = []
-    
+
     def put(self, key, item):
         '''
         adds to cache
@@ -22,9 +22,9 @@ class LFUCache(BaseCaching):
             if self.get(key) is None:
                 if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
                     del_key = self.leastRecent
-                    del_len = len(del_key) -1
+                    del_len = len(del_key) - 1
                     del self.cache_data[del_key[del_len]]
-                    print("DISCARD: {}".format(leastRecent,pop()))
+                    print("DISCARD: {}".format(leastRecent.pop()))
             else:
                 del self.cache_data[key]
 
