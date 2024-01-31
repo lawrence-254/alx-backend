@@ -23,7 +23,7 @@ class MRUCache(BaseCaching):
         if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
             most_recently_used = list(self.cache_data.keys())[-1]
             del self.cache_data[most_recently_used]
-            print("DISCARD:", most_recently_used)
+            print("DISCARD: {most_recently_used}")
 
         self.cache_data[key] = item
 
