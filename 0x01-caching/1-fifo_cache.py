@@ -19,7 +19,6 @@ class FIFOCache(BaseCaching):
         assiggns value to a dict for a given key
         '''
         if key is not None and item is not None:
-            #if (self.get(key)) is None:
             if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
                 firt_item, _ = self.cache_data.popitem(last=False)
                 print(f"DISCARD: {firt_item}\n")
