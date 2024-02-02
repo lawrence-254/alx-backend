@@ -60,7 +60,7 @@ class Server:
             return []
         return dataset[start_index:end_index]
 
-    def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
+    def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict[str, Any]:
         '''
         takes the same arguments (and defaults) as get_page and returns
         a dictionary containing the following key-value pairs
