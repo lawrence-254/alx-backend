@@ -47,11 +47,6 @@ class Server:
         takes two integer arguments page with default value 1
         and page_size with default value 10.
         '''
-    def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
-        '''
-        takes two integer arguments page with default value 1
-        and page_size with default value 10.
-        '''
         assert isinstance(page, int) and page > 0
         assert isinstance(page_size, int) and page_size > 0
 
@@ -72,7 +67,8 @@ class Server:
         '''
         data = self.get_page(page, page_size)
         total_pages = math.ceil(len(self.dataset()) / page_size)
-        next_page = page + 1 if page * page_size < len(self.dataset()) else None
+        next_page = page + 1 if page * page_size < len(
+                self.dataset()) else None
         prev_page = page - 1 if page > 1 else None
 
         return {
