@@ -3,7 +3,7 @@
 '''
 import csv
 import math
-from typing import Dict, List, Tuple
+from typing import List, Dict, Tuple
 
 
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
@@ -60,7 +60,7 @@ class Server:
             return []
         return dataset[start_index:end_index]
 
-    def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict[str, Any]:
+    def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict[str, any]:
         '''
         takes the same arguments (and defaults) as get_page and returns
         a dictionary containing the following key-value pairs
