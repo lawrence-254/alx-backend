@@ -5,6 +5,7 @@ a basic Flask app
 from flask_babel import Babel
 from flask import Flask, render_template
 
+
 class Config:
     '''
     configures babel languages
@@ -12,6 +13,7 @@ class Config:
     LANGUAGES = ['en', 'fr']
     BABEL_DEFAULT_LOCALE = 'en'
     BABEL_DEFAULT_TIMEZONE = 'UTC'
+
 
 app = Flask(__name__)
 app.config.from_object(Config)
